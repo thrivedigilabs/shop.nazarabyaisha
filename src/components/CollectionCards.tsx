@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useEmblaCarousel from "embla-carousel-react";
 import bridalImg from "@/assets/collection-bridal.jpg";
 import lehengasImg from "@/assets/collection-lehengas.jpg";
 import sareesImg from "@/assets/collection-sarees.jpg";
@@ -32,6 +33,12 @@ const collections = [
 ];
 
 export const CollectionCards = () => {
+  const [emblaRef] = useEmblaCarousel({ 
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+  });
+
   return (
     <section className="py-20 bg-[hsl(var(--lux-black))]">
       <div className="container mx-auto px-4">
@@ -46,7 +53,37 @@ export const CollectionCards = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Mobile Slider */}
+        <div className="md:hidden overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-4 px-4">
+            {collections.map((collection, index) => (
+              <Link
+                key={collection.category}
+                to={`/collections?category=${collection.category}`}
+                className="group relative flex-[0_0_85%] aspect-[3/4] rounded-2xl overflow-hidden animate-fade-in hover-scale"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <img
+                  src={collection.image}
+                  alt={collection.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
+                  <h3 className="font-display text-3xl mb-2 bg-gradient-to-r from-[hsl(var(--gold-start))] to-[hsl(var(--gold-end))] bg-clip-text text-transparent">
+                    {collection.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {collection.pieces} pieces
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {collections.map((collection, index) => (
             <Link
               key={collection.category}
