@@ -29,8 +29,8 @@ export const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 py-20 relative z-10">
-        <div className="max-w-2xl md:max-w-xl space-y-6 animate-fade-in md:text-left text-center md:items-start items-center flex flex-col">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 py-20 relative z-10 flex md:items-center items-end min-h-screen">
+        <div className="max-w-2xl md:max-w-xl space-y-6 animate-fade-in md:text-left text-center md:items-start items-center flex flex-col pb-8 md:pb-0">
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-tight">
             <span className="bg-gradient-to-r from-[hsl(var(--gold-start))] to-[hsl(var(--gold-end))] bg-clip-text text-transparent">
               Couture for the Modern Royal
