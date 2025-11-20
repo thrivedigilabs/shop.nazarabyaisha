@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Hero } from "@/components/Hero";
 import { CollectionCards } from "@/components/CollectionCards";
+import { LookbookSection } from "@/components/LookbookSection";
 import { ProductCard } from "@/components/ProductCard";
 import { getProducts, ShopifyProduct } from "@/lib/shopify";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,8 @@ const Home = () => {
       <Hero />
       
       <CollectionCards />
+      
+      <LookbookSection />
       
       <section className="py-20 bg-[hsl(var(--lux-black))]">
         <div className="container mx-auto px-4">
