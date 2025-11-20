@@ -1,7 +1,7 @@
 const SHOPIFY_API_VERSION = '2025-07';
-const SHOPIFY_STORE_PERMANENT_DOMAIN = 'lovable-project-8hj4o.myshopify.com';
+const SHOPIFY_STORE_PERMANENT_DOMAIN = 'nazaratest2.myshopify.com';
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = '3a1ffa4998c67635d2ae20e0f71d5ff5';
+const SHOPIFY_STOREFRONT_TOKEN = 'ed3161723bc5c71ae2d838826e0bfc1b';
 
 export interface ShopifyProduct {
   node: {
