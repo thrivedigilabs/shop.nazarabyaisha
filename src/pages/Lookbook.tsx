@@ -1,3 +1,23 @@
+import gownBlack from "@/assets/lookbook-gown-black.jpg";
+import gownYellow from "@/assets/lookbook-gown-yellow.jpg";
+import lehengaDark from "@/assets/lookbook-lehenga-dark.jpg";
+import lehengaGold1 from "@/assets/lookbook-lehenga-gold-1.jpg";
+import lehengaGold2 from "@/assets/lookbook-lehenga-gold-2.jpg";
+import lehengaOrange from "@/assets/lookbook-lehenga-orange.jpg";
+import lehengaRedYellow from "@/assets/lookbook-lehenga-red-yellow.jpg";
+import lehengaWhite from "@/assets/lookbook-lehenga-white.jpg";
+
+const lookbookImages = [
+  gownBlack,
+  gownYellow,
+  lehengaDark,
+  lehengaGold1,
+  lehengaGold2,
+  lehengaOrange,
+  lehengaRedYellow,
+  lehengaWhite
+];
+
 const Lookbook = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
@@ -14,11 +34,13 @@ const Lookbook = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
+          {lookbookImages.map((image, i) => (
             <div key={i} className="aspect-[3/4] rounded-lg overflow-hidden bg-[hsl(var(--photo-stage))] shadow-[var(--shadow-gold)]">
-              <div className="w-full h-full flex items-center justify-center">
-                <p className="text-muted-foreground">Lookbook Image {i}</p>
-              </div>
+              <img
+                src={image}
+                alt={`Lookbook ${i + 1}`}
+                className="w-full h-full object-cover"
+              />
             </div>
           ))}
         </div>
