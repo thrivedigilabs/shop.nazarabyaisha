@@ -1,61 +1,64 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import heroDesktop from "@/assets/hero-bridal.jpg";
+import heroMobile from "@/assets/hero-mobile.jpg";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(var(--lux-black))]" />
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Desktop Background */}
+      <div className="hidden md:block absolute inset-0">
+        <img 
+          src={heroDesktop} 
+          alt="Nazara Bridal Couture" 
+          className="w-full h-full object-cover"
+        />
+      </div>
       
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      {/* Mobile Background */}
+      <div className="md:hidden absolute inset-0">
+        <img 
+          src={heroMobile} 
+          alt="Nazara Bridal Couture" 
+          className="w-full h-full object-cover"
+        />
+      </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in">
-            <h1 className="font-display text-5xl md:text-7xl leading-tight">
-              <span className="block text-foreground">Couture for the</span>
-              <span className="block bg-gradient-to-r from-[hsl(var(--gold-start))] to-[hsl(var(--gold-end))] bg-clip-text text-transparent">
-                Modern Royal
-              </span>
-            </h1>
-            
-            <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-              Where traditional Indian craftsmanship meets contemporary luxury. 
-              Every piece is handcrafted over 300-650 hours using authentic 24k gold thread 
-              and heritage embroidery techniques.
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-gradient-to-r from-[hsl(var(--gold-start))] to-[hsl(var(--gold-end))] text-background hover:opacity-90 px-8"
-              >
-                <Link to="/collections">Explore Collections</Link>
-              </Button>
-              <Button 
-                asChild 
-                variant="outline" 
-                size="lg"
-                className="border-accent text-accent hover:bg-accent/10 px-8"
-              >
-                <Link to="/contact">Book Appointment</Link>
-              </Button>
-            </div>
-          </div>
+      {/* Content */}
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 py-20 relative z-10">
+        <div className="max-w-2xl md:max-w-xl space-y-6 animate-fade-in md:text-left text-center md:items-start items-center flex flex-col">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-tight">
+            <span className="bg-gradient-to-r from-[hsl(var(--gold-start))] to-[hsl(var(--gold-end))] bg-clip-text text-transparent">
+              Couture for the Modern Royal
+            </span>
+          </h1>
           
-          <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-gold)]">
-              <div className="aspect-[3/4] bg-gradient-to-br from-[hsl(var(--photo-stage))] to-[hsl(var(--gold-end))/20]" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <p className="font-display text-2xl text-muted-foreground">
-                  Hero Image Placeholder
-                </p>
-              </div>
-            </div>
+          <p className="text-xl md:text-2xl text-foreground font-light">
+            Where Heritage Meets Contemporary Luxury
+          </p>
+          
+          <p className="text-base md:text-lg text-foreground/90 max-w-xl leading-relaxed">
+            Exquisite handcrafted couture celebrating Indian artistry. Each piece tells a story 
+            of timeless elegance and meticulous craftsmanship.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
+            <Button 
+              asChild 
+              size="lg"
+              className="bg-gradient-to-r from-[hsl(var(--gold-start))] to-[hsl(var(--gold-end))] text-[hsl(var(--lux-black))] hover:opacity-90 text-base font-medium px-8 py-6 rounded-full"
+            >
+              <Link to="/collections">Explore the Collection</Link>
+            </Button>
             
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg"
+              className="border-2 border-[hsl(var(--gold-start))] text-foreground hover:bg-[hsl(var(--gold-start))]/10 text-base font-medium px-8 py-6 rounded-full bg-transparent"
+            >
+              <Link to="/contact">Book Appointment</Link>
+            </Button>
           </div>
         </div>
       </div>
