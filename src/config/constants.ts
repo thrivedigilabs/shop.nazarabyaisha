@@ -3,7 +3,7 @@ export const APP_CONFIG = {
     phoneNumber: '911234567890', // Update this with your WhatsApp number (format: country code + number, no spaces or symbols)
   },
   webhook: {
-    appointmentUrl: 'https://your-webhook-url.com/appointment', // Update this with your webhook URL
+    appointmentUrl: 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY0MDYzZTA0MzM1MjY1NTUzNTUxMzQi_pc',
   },
 } as const;
 

@@ -51,10 +51,11 @@ export const useCartStore = create<CartStore>()(
               i.variantId === item.variantId
                 ? { ...i, quantity: i.quantity + item.quantity }
                 : i
-            )
+            ),
+            checkoutUrl: null // Clear checkout URL when cart changes
           });
         } else {
-          set({ items: [...items, item] });
+          set({ items: [...items, item], checkoutUrl: null });
         }
       },
 
@@ -67,13 +68,15 @@ export const useCartStore = create<CartStore>()(
         set({
           items: get().items.map(item =>
             item.variantId === variantId ? { ...item, quantity } : item
-          )
+          ),
+          checkoutUrl: null // Clear checkout URL when cart changes
         });
       },
 
       removeItem: (variantId) => {
         set({
-          items: get().items.filter(item => item.variantId !== variantId)
+          items: get().items.filter(item => item.variantId !== variantId),
+          checkoutUrl: null // Clear checkout URL when cart changes
         });
       },
 

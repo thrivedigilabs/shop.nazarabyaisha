@@ -14,6 +14,10 @@ export const CartDrawer = () => {
 
   const handleCheckout = async () => {
     try {
+      // Always create a fresh checkout to avoid stale checkout URL issues
+      const { setCheckoutUrl } = useCartStore.getState();
+      setCheckoutUrl(null); // Clear any previous checkout URL
+      
       await createCheckout();
       const checkoutUrl = useCartStore.getState().checkoutUrl;
       if (checkoutUrl) {
