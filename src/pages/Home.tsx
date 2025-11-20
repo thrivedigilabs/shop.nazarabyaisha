@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Hero } from "@/components/Hero";
 import { CollectionCards } from "@/components/CollectionCards";
+import { CreativeDirectorSection } from "@/components/CreativeDirectorSection";
 import { LookbookSection } from "@/components/LookbookSection";
 import { ProductCard } from "@/components/ProductCard";
 import { getProducts, ShopifyProduct } from "@/lib/shopify";
@@ -27,6 +28,8 @@ const Home = () => {
       <Hero />
       
       <CollectionCards />
+      
+      <CreativeDirectorSection />
       
       <LookbookSection />
       
