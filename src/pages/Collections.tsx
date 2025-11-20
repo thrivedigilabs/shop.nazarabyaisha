@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ProductCard } from "@/components/ProductCard";
 import { getProducts, ShopifyProduct } from "@/lib/shopify";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Collections = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState(
+    searchParams.get("category") || "All"
+  );
 
   const categories = ["All", "Bridal", "Sarees", "Lehengas", "Gowns", "Anarkalis"];
+
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam && categories.includes(categoryParam)) {
+      setSelectedCategory(categoryParam);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -47,7 +58,14 @@ const Collections = () => {
               <Button
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => {
+                  setSelectedCategory(category);
+                  if (category === "All") {
+                    setSearchParams({});
+                  } else {
+                    setSearchParams({ category });
+                  }
+                }}
                 className={
                   selectedCategory === category
                     ? "bg-gradient-to-r from-[hsl(var(--gold-start))] to-[hsl(var(--gold-end))] text-background"
