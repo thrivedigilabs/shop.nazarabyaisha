@@ -13,6 +13,8 @@ export const Hero = () => {
           alt="Nazara Bridal Couture" 
           className="w-full h-full object-cover"
         />
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
       </div>
       
       {/* Mobile Background */}
@@ -22,6 +24,8 @@ export const Hero = () => {
           alt="Nazara Bridal Couture" 
           className="w-full h-full object-cover"
         />
+        {/* Gradient overlay for text readability - darker at bottom where text is */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/80" />
       </div>
       
       {/* Content */}
